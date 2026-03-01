@@ -406,7 +406,7 @@ jobs:
         JAVA_EOF
 
     - name: Create SplashActivity.java
-      if: ${config.showSplash}
+      if: \${{ ${config.showSplash} }}
       run: |
         cat > app/src/main/java/com/webtoapk/SplashActivity.java << 'SPLASH_EOF'
         package ${config.packageName};
@@ -504,7 +504,7 @@ jobs:
         echo "sdk.dir=$ANDROID_HOME" > local.properties
 
     - name: Download and set app icon
-      if: "${config.iconUrl}"
+      if: \${{ ${config.iconUrl ? 'true' : 'false'} }}
       run: |
         curl -L -o icon.png "${config.iconUrl}" || true
         if [ -f icon.png ]; then
