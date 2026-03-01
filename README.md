@@ -1,141 +1,124 @@
-# 🚀 Welcome to Z.ai Code Scaffold
+# WebToAPK Builder 🚀
 
-A modern, production-ready web application scaffold powered by cutting-edge technologies, designed to accelerate your development with [Z.ai](https://chat.z.ai)'s AI-powered coding assistance.
+A powerful web application that converts any website into a native Android APK with custom branding, icons, and features. Built with Next.js, TypeScript, and automated with GitHub Actions.
 
-## ✨ Technology Stack
+![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)
+![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-Automated-green?style=flat-square&logo=github-actions)
 
-This scaffold provides a robust foundation built with:
+## ✨ Features
 
-### 🎯 Core Framework
-- **⚡ Next.js 16** - The React framework for production with App Router
-- **📘 TypeScript 5** - Type-safe JavaScript for better developer experience
-- **🎨 Tailwind CSS 4** - Utility-first CSS framework for rapid UI development
+- **🎨 Custom Branding**: Configure app name, icon, colors, and splash screen
+- **📱 WebView App**: Convert any website into a native Android app
+- **⚙️ Configurable Options**: Cache, zoom, orientation, and more
+- **🔄 Automated Builds**: GitHub Actions handles the entire build process
+- **📊 Real-time Status**: Monitor build progress with live updates
+- **📥 Easy Download**: Direct download links for completed APKs
+- **📝 Full Logs**: Detailed error logs for debugging failed builds
 
-### 🧩 UI Components & Styling
-- **🧩 shadcn/ui** - High-quality, accessible components built on Radix UI
-- **🎯 Lucide React** - Beautiful & consistent icon library
-- **🌈 Framer Motion** - Production-ready motion library for React
-- **🎨 Next Themes** - Perfect dark mode in 2 lines of code
+## 🛠️ Tech Stack
 
-### 📋 Forms & Validation
-- **🎣 React Hook Form** - Performant forms with easy validation
-- **✅ Zod** - TypeScript-first schema validation
+- **Frontend**: Next.js 16, React 19, TypeScript, Tailwind CSS
+- **UI Components**: shadcn/ui with custom emerald theme
+- **Database**: Prisma ORM with SQLite
+- **Automation**: GitHub Actions for APK builds
+- **Real-time**: Polling-based status updates
 
-### 🔄 State Management & Data Fetching
-- **🐻 Zustand** - Simple, scalable state management
-- **🔄 TanStack Query** - Powerful data synchronization for React
-- **🌐 Fetch** - Promise-based HTTP request
+## 🚀 Getting Started
 
-### 🗄️ Database & Backend
-- **🗄️ Prisma** - Next-generation TypeScript ORM
-- **🔐 NextAuth.js** - Complete open-source authentication solution
+### Prerequisites
 
-### 🎨 Advanced UI Features
-- **📊 TanStack Table** - Headless UI for building tables and datagrids
-- **🖱️ DND Kit** - Modern drag and drop toolkit for React
-- **📊 Recharts** - Redefined chart library built with React and D3
-- **🖼️ Sharp** - High performance image processing
+- Node.js 18+
+- GitHub account with Personal Access Token
+- Git
 
-### 🌍 Internationalization & Utilities
-- **🌍 Next Intl** - Internationalization library for Next.js
-- **📅 Date-fns** - Modern JavaScript date utility library
-- **🪝 ReactUse** - Collection of essential React hooks for modern development
+### Installation
 
-## 🎯 Why This Scaffold?
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/webtoapk-builder.git
+   cd webtoapk-builder
+   ```
 
-- **🏎️ Fast Development** - Pre-configured tooling and best practices
-- **🎨 Beautiful UI** - Complete shadcn/ui component library with advanced interactions
-- **🔒 Type Safety** - Full TypeScript configuration with Zod validation
-- **📱 Responsive** - Mobile-first design principles with smooth animations
-- **🗄️ Database Ready** - Prisma ORM configured for rapid backend development
-- **🔐 Auth Included** - NextAuth.js for secure authentication flows
-- **📊 Data Visualization** - Charts, tables, and drag-and-drop functionality
-- **🌍 i18n Ready** - Multi-language support with Next Intl
-- **🚀 Production Ready** - Optimized build and deployment settings
-- **🤖 AI-Friendly** - Structured codebase perfect for AI assistance
+2. **Install dependencies**
+   ```bash
+   bun install
+   ```
 
-## 🚀 Quick Start
+3. **Set up environment variables**
+   Create a `.env` file with:
+   ```env
+   DATABASE_URL=file:./db/custom.db
+   GITHUB_TOKEN=your_github_token
+   GITHUB_EMAIL=your_email
+   GITHUB_USERNAME=your_username
+   ```
 
-```bash
-# Install dependencies
-bun install
+4. **Initialize database**
+   ```bash
+   bun run db:push
+   ```
 
-# Start development server
-bun run dev
+5. **Start development server**
+   ```bash
+   bun run dev
+   ```
 
-# Build for production
-bun run build
+6. **Open in browser**
+   Navigate to `http://localhost:3000`
 
-# Start production server
-bun start
-```
+## 🔧 Configuration Options
 
-Open [http://localhost:3000](http://localhost:3000) to see your application running.
+| Option | Description | Default |
+|--------|-------------|---------|
+| App Name | Display name on device | "My WebView App" |
+| Package Name | Unique Android identifier | com.example.myapp |
+| Version | App version (x.x.x) | 1.0.0 |
+| Website URL | URL to load in WebView | Required |
+| Icon URL | Custom app icon | Default icon |
+| Primary Color | Theme color | #10b981 |
+| Orientation | Screen orientation | Portrait |
+| Cache | Enable web caching | Enabled |
+| Zoom | Allow zoom in WebView | Disabled |
+| Splash Screen | Show launch screen | Enabled |
 
-## 🤖 Powered by Z.ai
+## 🔄 Build Process
 
-This scaffold is optimized for use with [Z.ai](https://chat.z.ai) - your AI assistant for:
+1. **Configuration** → Fill in app details
+2. **Repository Creation** → GitHub repo created automatically
+3. **File Upload** → Project files pushed to GitHub
+4. **GitHub Actions** → Build triggered automatically
+5. **APK Generation** → Android app compiled
+6. **Download Ready** → APK available for download
 
-- **💻 Code Generation** - Generate components, pages, and features instantly
-- **🎨 UI Development** - Create beautiful interfaces with AI assistance  
-- **🔧 Bug Fixing** - Identify and resolve issues with intelligent suggestions
-- **📝 Documentation** - Auto-generate comprehensive documentation
-- **🚀 Optimization** - Performance improvements and best practices
+## 📱 APK Features
 
-Ready to build something amazing? Start chatting with Z.ai at [chat.z.ai](https://chat.z.ai) and experience the future of AI-powered development!
+The generated APK includes:
+- Native Android WebView
+- Internet permission
+- Network state detection
+- Progress indicator
+- Error handling
+- Back button navigation
+- Cookie support
+- JavaScript enabled
+- DOM storage enabled
 
-## 📁 Project Structure
+## 🔐 Security
 
-```
-src/
-├── app/                 # Next.js App Router pages
-├── components/          # Reusable React components
-│   └── ui/             # shadcn/ui components
-├── hooks/              # Custom React hooks
-└── lib/                # Utility functions and configurations
-```
+- GitHub tokens are stored securely in the database
+- Environment variables are never committed to git
+- Each build creates a new isolated repository
+- Personal access tokens can be revoked anytime
 
-## 🎨 Available Features & Components
+## 📝 License
 
-This scaffold includes a comprehensive set of modern web development tools:
+MIT License - Feel free to use and modify!
 
-### 🧩 UI Components (shadcn/ui)
-- **Layout**: Card, Separator, Aspect Ratio, Resizable Panels
-- **Forms**: Input, Textarea, Select, Checkbox, Radio Group, Switch
-- **Feedback**: Alert, Toast (Sonner), Progress, Skeleton
-- **Navigation**: Breadcrumb, Menubar, Navigation Menu, Pagination
-- **Overlay**: Dialog, Sheet, Popover, Tooltip, Hover Card
-- **Data Display**: Badge, Avatar, Calendar
+## 🤝 Contributing
 
-### 📊 Advanced Data Features
-- **Tables**: Powerful data tables with sorting, filtering, pagination (TanStack Table)
-- **Charts**: Beautiful visualizations with Recharts
-- **Forms**: Type-safe forms with React Hook Form + Zod validation
-
-### 🎨 Interactive Features
-- **Animations**: Smooth micro-interactions with Framer Motion
-- **Drag & Drop**: Modern drag-and-drop functionality with DND Kit
-- **Theme Switching**: Built-in dark/light mode support
-
-### 🔐 Backend Integration
-- **Authentication**: Ready-to-use auth flows with NextAuth.js
-- **Database**: Type-safe database operations with Prisma
-- **API Client**: HTTP requests with Fetch + TanStack Query
-- **State Management**: Simple and scalable with Zustand
-
-### 🌍 Production Features
-- **Internationalization**: Multi-language support with Next Intl
-- **Image Optimization**: Automatic image processing with Sharp
-- **Type Safety**: End-to-end TypeScript with Zod validation
-- **Essential Hooks**: 100+ useful React hooks with ReactUse for common patterns
-
-## 🤝 Get Started with Z.ai
-
-1. **Clone this scaffold** to jumpstart your project
-2. **Visit [chat.z.ai](https://chat.z.ai)** to access your AI coding assistant
-3. **Start building** with intelligent code generation and assistance
-4. **Deploy with confidence** using the production-ready setup
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ---
 
-Built with ❤️ for the developer community. Supercharged by [Z.ai](https://chat.z.ai) 🚀
+Built with ❤️ using Next.js and GitHub Actions

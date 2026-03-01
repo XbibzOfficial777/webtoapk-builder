@@ -49,3 +49,12 @@ prompt
 server.log
 # Skills directory
 /skills/
+
+# Database files (may contain sensitive data)
+db/*.db
+db/*.db-journal
+*.sqlite
+*.sqlite3
+
+# Worklog
+worklog.md

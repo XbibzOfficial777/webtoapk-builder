@@ -1,9 +1,6 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -13,20 +10,47 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id        String   @id @default(cuid())
-  email     String   @unique
-  name      String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+model BuildConfig {
+  id            String   @id @default(cuid())
+  appName       String
+  packageName   String
+  versionName   String   @default("1.0.0")
+  versionCode   Int      @default(1)
+  websiteUrl    String
+  iconUrl       String?
+  primaryColor  String   @default("#6366f1")
+  orientation   String   @default("portrait")
+  enableCache   Boolean  @default(true)
+  enableZoom    Boolean  @default(false)
+  showSplash    Boolean  @default(true)
+  splashText    String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  builds        Build[]
 }
 
-model Post {
+model Build {
+  id              String      @id @default(cuid())
+  buildConfigId   String
+  buildConfig     BuildConfig @relation(fields: [buildConfigId], references: [id], onDelete: Cascade)
+  status          String      @default("pending")
+  githubRunId     String?
+  githubRepoName  String?
+  downloadUrl     String?
+  logs            String?
+  errorMessage    String?
+  startedAt       DateTime?
+  completedAt     DateTime?
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+}
+
+model GitHubToken {
   id        String   @id @default(cuid())
-  title     String
-  content   String?
-  published Boolean  @default(false)
-  authorId  String
+  token     String
+  email     String
+  username  String
+  isActive  Boolean  @default(true)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
